@@ -48,7 +48,7 @@ $(obj)/Image: vmlinux FORCE
 	$(call if_changed,objcopy)
 	@$(kecho) '  Kernel: $@ is ready'
 ifeq ($(CONFIG_ARCH_NUC980),y)
-	cp $@   ../image/980image
+	cp $@   ../../images/980image
 endif
 
 
@@ -84,7 +84,7 @@ $(obj)/uImage:	$(obj)/zImage FORCE
 	$(call if_changed,uimage)
 	@$(kecho) '  Image $@ is ready'
 ifeq ($(CONFIG_ARCH_NUC980),y)
-	cp $@   ../image/980uimage
+	cp $@   ../../images/980uimage
 endif
 
 $(obj)/bootp/bootp: $(obj)/zImage initrd FORCE
