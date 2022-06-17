@@ -710,6 +710,26 @@ static struct fbtft_device_display displays[] = {
 			}
 		}
 	}, {
+	    .name = "jlx128128g",
+	    .spi = &(struct spi_board_info) {
+		.modalias = "fb_st7571",
+		.max_speed_hz = 5 * 1000 * 1000,
+		.mode = SPI_MODE_0,
+		.platform_data = &(struct fbtft_platform_data) {
+		    .display = {
+			.buswidth = 8,
+			.backlight = 1,
+		    },
+		    .bgr = true,
+		    .gpios = (const struct fbtft_gpio []) {
+			{ "reset", 34 },
+			{ "dc",    32 },
+			{ "led",   33 },
+			{},
+		    },
+		}
+	    }
+	}, {
 		.name = "mi0283qt-2",
 		.spi = &(struct spi_board_info) {
 			.modalias = "fb_hx8347d",
